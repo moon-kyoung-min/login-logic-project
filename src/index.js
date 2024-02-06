@@ -1,19 +1,14 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import authRoutes from './routes/authRoutes';
-import userRoutes from './routes/userRoutes';
-import productRoutes from './routes/productRoutes';
 
 const app = express();
+const port = 3000;
 
-app.use(bodyParser.json());
+app.use(express.json());
 
-// 라우터 등록
+// authRoutes 사용
 app.use('/auth', authRoutes);
-app.use('/user', userRoutes);
-app.use('/product', productRoutes);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}`);
 });

@@ -1,11 +1,12 @@
 import express from 'express';
-import { signUp, login, getProfile } from '../controllers/authController';
-import authMiddleware from '../middleware/authMiddleware';
+import { signUp, login } from '../controllers/authController';
 
 const router = express.Router();
 
+// 회원가입 API
 router.post('/signup', signUp);
+
+// 로그인 API
 router.post('/login', login);
-router.get('/profile', authMiddleware, getProfile);
 
 export default router;
